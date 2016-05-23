@@ -3,9 +3,6 @@ package net.myrts.alchemy;
 import com.alchemyapi.api.AlchemyAPI;
 import com.alchemyapi.api.AlchemyAPI_ConceptParams;
 import com.alchemyapi.api.AlchemyAPI_TaxonomyParams;
-import net.myrts.alchemy.concept.ConceptsType;
-import net.myrts.alchemy.concept.ResultsType;
-import net.myrts.alchemy.taxonomy.TaxonomyType;
 import org.apache.commons.io.IOUtils;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -64,6 +61,10 @@ public class AlchemyAPITest {
         StringReader sr = new StringReader(actualStrResponse);
         net.myrts.alchemy.concept.ResultsType conceptType = (net.myrts.alchemy.concept.ResultsType) JAXBIntrospector.getValue(unmarshaller.unmarshal(sr));
         assertNotNull("Concept type is undefined ", conceptType);
+
+        net.myrts.alchemy.concept.ResultsType conceptTypeFromDocument = (net.myrts.alchemy.concept.ResultsType) JAXBIntrospector.getValue(unmarshaller.unmarshal(documentConcept));
+        assertNotNull("Concept type is undefined ", conceptTypeFromDocument);
+        
     }
 
     @Test
@@ -88,6 +89,9 @@ public class AlchemyAPITest {
         StringReader sr = new StringReader(actualStrResponse);
         net.myrts.alchemy.taxonomy.ResultsType taxonomyType = (net.myrts.alchemy.taxonomy.ResultsType) JAXBIntrospector.getValue(unmarshaller.unmarshal(sr));
         assertNotNull("Taxonomy type is undefined ", taxonomyType);
+
+        net.myrts.alchemy.taxonomy.ResultsType taxonomyTypeFromDocument = (net.myrts.alchemy.taxonomy.ResultsType) JAXBIntrospector.getValue(unmarshaller.unmarshal(documentConcept));
+        assertNotNull("Taxonomy type is undefined ", taxonomyTypeFromDocument);
 
     }
 
