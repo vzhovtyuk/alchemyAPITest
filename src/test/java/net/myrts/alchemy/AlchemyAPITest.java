@@ -6,7 +6,7 @@ import com.alchemyapi.api.AlchemyAPI_TaxonomyParams;
 import net.myrts.alchemy.concept.ConceptsType;
 import net.myrts.alchemy.concept.ResultsType;
 import net.myrts.alchemy.taxonomy.TaxonomyType;
-import org.apache.commons.compress.utils.IOUtils;
+import org.apache.commons.io.IOUtils;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
